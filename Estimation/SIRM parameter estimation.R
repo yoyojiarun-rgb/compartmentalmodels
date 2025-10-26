@@ -1,11 +1,11 @@
 library(readxl)
-simdata <- read_excel("C:/Users/yoyoj/Downloads/data_SIRM.xlsx")
+simdata <- read_excel("C:/data_SIRM.xlsx")
 simdata$S.delta<- c(simdata$S[-1],0)-simdata$S
 simdata$I.delta<- c(simdata$I[-1],0)-simdata$I
 simdata$R.delta<- c(simdata$R[-1],0)-simdata$R
 simdata$M.delta<- c(simdata$M[-1],0)-simdata$M
 simdata<- simdata[-nrow(simdata),]
-
+# estimating using regression
 for (j in 1:nrow(simdata)) {
   simdata$response2.var[j] <- simdata$I.delta[j] / simdata$I[j]
   simdata$response1.var[j] <- simdata$S.delta[j] / simdata$I[j]
@@ -21,8 +21,7 @@ reg1.summary <- summary(reg1)
 print(beta.hatR1<- -N*reg1.summary$coefficients[2,1])
 print(alpha.hatR1 <- reg1.summary$coefficients[1,1])
 
-#method of moments
-
+# estimating using method of moments and regression method
 
 for (j in 1:nrow(simdata)) {
   simdata$gamma.est[j]<- simdata$R.delta[j]/simdata$I[j]
