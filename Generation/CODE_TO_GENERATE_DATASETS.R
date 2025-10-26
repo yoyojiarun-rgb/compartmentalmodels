@@ -85,7 +85,7 @@ legend("left", c("S","I","R","M"), lty=1, col=c("green","red","blue","purple"))
 Day <- 0:40
 
 sir_df <- data.frame(Day, S, I, R, M)
-write_xlsx(sir_df, "C:/Users/yoyoj/Downloads/alpha_0.1_data_SIRS.xlsx")
+write_xlsx(sir_df, "C:/data_SIRS.xlsx")
 
 
 # simulating a dataset for SVIR model (full immunity)
@@ -121,7 +121,7 @@ legend("left", c("S","V","I","R"), lty=1, col=c("green","black","red","blue"))
 Day <- 0:40
 
 sir_df <- data.frame(Day, S, V, I, R)
-write_xlsx(sir_df, "C:/Users/yoyoj/Downloads/data_SVIR.xlsx")
+write_xlsx(sir_df, "C:/data_SVIR.xlsx")
 
 
 # simulating SVIR model (partial immunity)
@@ -158,4 +158,4 @@ legend("left", c("S","V","I","R"), lty=1, col=c("green","black","red","blue"))
 Day <- 0:40
 
 sir_df <- data.frame(Day, S, V, I, R)
-write_xlsx(sir_df, "C:/Users/yoyoj/Downloads/data_SVIRpartial.xlsx")
+write_xlsx(sir_df, "C:/data_SVIRpartial.xlsx")
