@@ -1,10 +1,12 @@
 library(readxl)
-simdata <- read_excel("C:/Users/yoyoj/Downloads/data_SVIR.xlsx")
+simdata <- read_excel("C:/data_SVIR.xlsx")
 simdata$S.delta<- c(simdata$S[-1],0)-simdata$S
 simdata$I.delta<- c(simdata$I[-1],0)-simdata$I
 simdata$R.delta<- c(simdata$R[-1],0)-simdata$R
 simdata$V.delta<- c(simdata$V[-1],0)-simdata$V
 simdata<- simdata[-nrow(simdata),]
+
+# two ways of estimating with regression
 
 for (j in 1:nrow(simdata)) {
   simdata$response.vartwo[j] <- simdata$I.delta[j] / simdata$I[j]
@@ -21,7 +23,7 @@ reg1.summary <- summary(reg1)
 print(beta.hatR1<- -N*reg1.summary$coefficients[2,1])
 print(nu.hatR<- -reg1.summary$coefficients[1,1])
 
-#method of moments
+# estimating using method of moments
 
 
 for (j in 1:nrow(simdata)) {
