@@ -1,5 +1,5 @@
 library(readxl)
-sir_data <- read_excel("C:/Users/yoyoj/Downloads/data_SVIRpartial.xlsx")
+sir_data <- read_excel("C:/data_SVIRpartial.xlsx")
 # Plot S line first
 plot(sir_data$Day, sir_data$S, type = "l", col = "blue", lwd = 2,
      xlab = "Day", ylab = "Population", 
